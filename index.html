@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RareHatch | Systems Developer</title>
+    <title>RareHatch | Portfolio</title>
     <style>
         :root {
             --bg-main: #09090b;
@@ -36,7 +36,7 @@
         }
 
         header {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             position: relative;
         }
 
@@ -62,6 +62,33 @@
             color: var(--text-secondary);
             margin-top: 8px;
             font-size: 1.05rem;
+        }
+
+        .bio-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .bio-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .bio-section p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            max-width: 800px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .grid {
@@ -109,14 +136,15 @@
             letter-spacing: 0.5px;
             background: var(--accent-muted);
             color: var(--accent-gold);
-            padding: 4px 10px;
+            padding: 6px 12px;
             border-radius: 4px;
             border: 1px solid rgba(255, 215, 0, 0.2);
+            display: inline-block;
         }
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
             border-radius: 6px;
@@ -139,52 +167,57 @@
     <div class="container">
         <header>
             <div class="header-line">RareHatch</div>
-            <h1>Systems & UI Portfolio</h1>
-            <p class="subtitle">High-fidelity mechanics and custom scripting environments.</p>
+            <h1>Portfolio</h1>
+            <p class="subtitle">Roblox development, UI, and scripting.</p>
         </header>
 
+        <div class="bio-section">
+            <h2>About Me</h2>
+            <p>I'm a developer specializing in Luau and user interface design. I create functional scripts and custom systems primarily for roleplay communities on Roblox.</p>
+            <div class="skills-grid">
+                <span class="badge">Luau Scripter</span>
+                <span class="badge">UI Designer</span>
+            </div>
+        </div>
+
         <div class="grid">
-            <!-- MDT System -->
             <div class="card">
                 <div class="card-header">
-                    <h3>Mobile Data Terminal (MDT)</h3>
+                    <h3>MDT System</h3>
                     <div class="badge">Luau / UI</div>
                 </div>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/tAbFpC6XCZk" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/tAbFpC6XCZk" title="MDT Video" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <!-- Dashcam System -->
             <div class="card">
                 <div class="card-header">
-                    <h3>Axon Fleet 3 Dashcam</h3>
-                    <div class="badge">Telemetry</div>
+                    <h3>Dashcam System</h3>
+                    <div class="badge">Scripting</div>
                 </div>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/h6yHBF8ya2Q" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/h6yHBF8ya2Q" title="Dashcam Video" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <!-- Bodycam System -->
             <div class="card">
                 <div class="card-header">
-                    <h3>Tactical Bodycam System</h3>
-                    <div class="badge">Simulation</div>
+                    <h3>Bodycam System</h3>
+                    <div class="badge">Scripting</div>
                 </div>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/acfBzowFnNY" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/acfBzowFnNY" title="Bodycam Video" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <!-- Chat System -->
             <div class="card">
                 <div class="card-header">
-                    <h3>Roleplay Chat System</h3>
-                    <div class="badge">Core Logic</div>
+                    <h3>Chat System</h3>
+                    <div class="badge">Scripting</div>
                 </div>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/WOoo68YddaE" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/WOoo68YddaE" title="Chat System Video" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
