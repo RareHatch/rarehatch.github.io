@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storefront Grid</title>
+    <title>RareHatch | Portfolio</title>
     <style>
-        /* Import a nice, bold font for the headers */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@400;500;700&display=swap');
 
         :root {
-            /* 🎨 COLOR PALETTE - Change these to alter the whole theme! */
-            --bg-page: #05050a;          /* Deepest background */
-            --bg-card: #0d0f18;          /* Card background */
-            --accent-main: #00e5ff;      /* Primary bright accent (Cyan) */
-            --accent-dark: #005bb5;      /* Darker accent for gradients */
-            --badge-bg: rgba(0, 229, 255, 0.15); /* Badge background */
-            --badge-text: #00e5ff;       /* Badge text */
+            --bg-page: #05050a;
+            --bg-card: #0d0f18;
+            --accent-main: #00e5ff;
+            --accent-dark: #005bb5;
+            --badge-bg: rgba(0, 229, 255, 0.15);
+            --badge-text: #00e5ff;
             --text-main: #ffffff;
-            --text-muted: #8b92a5;
+            --text-secondary: #8b92a5;
             --border-color: #1a1d2d;
         }
 
@@ -29,29 +27,113 @@
 
         body {
             background-color: var(--bg-page);
-            /* Creating a subtle grid background effect like in the image */
             background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 30px 30px;
             color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            padding: 50px 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 60px 20px;
             display: flex;
             justify-content: center;
-            min-height: 100vh;
         }
 
-        /* Container for the grid */
-        .store-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 24px;
+        .container {
             width: 100%;
             max-width: 1100px;
         }
 
-        /* Individual Card Styling */
+        header {
+            margin-bottom: 40px;
+        }
+
+        .header-line {
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-main);
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--accent-main);
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        p.subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .bio-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .bio-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .bio-section p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item svg {
+            color: var(--accent-main);
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .store-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+            gap: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .store-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -67,30 +149,26 @@
             box-shadow: 0 8px 25px rgba(0, 229, 255, 0.15);
         }
 
-        /* Top Banner/Image Area */
         .card-banner {
-            height: 160px;
+            height: 120px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Cool diagonal gradient mimicking the image style */
             background: linear-gradient(135deg, var(--accent-dark) 0%, #1a1a2e 50%, var(--accent-dark) 100%);
             border-bottom: 2px solid var(--border-color);
             overflow: hidden;
         }
 
-        /* Adding the dotted overlay pattern to the banner */
         .card-banner::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
             background-size: 4px 4px;
-            z-height: 1;
+            z-index: 1;
         }
 
-        /* Diagonal line across the banner */
         .card-banner::after {
             content: '';
             position: absolute;
@@ -103,7 +181,7 @@
 
         .banner-text {
             font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: #ffffff;
             text-transform: uppercase;
@@ -113,22 +191,34 @@
             text-shadow: 3px 3px 0px rgba(0,0,0,0.4), 0 0 15px rgba(0, 229, 255, 0.6);
         }
 
-        /* Bottom Content Area */
         .card-content {
             padding: 20px;
         }
 
-        .card-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+            border: 1px solid var(--border-color);
+            margin-bottom: 16px;
         }
 
-        .price {
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--text-main);
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .product-badge {
@@ -138,95 +228,113 @@
             font-weight: 700;
             padding: 6px 12px;
             border-radius: 20px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 6px;
             border: 1px solid rgba(0, 229, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-
-        /* Small box icon inside the badge */
-        .product-badge svg {
-            width: 12px;
-            height: 12px;
-            fill: currentColor;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
     </style>
 </head>
 <body>
 
-    <div class="store-grid">
-        
-        <div class="card">
-            <div class="card-banner">
-                <div class="banner-text">ROBLOX</div>
-            </div>
-            <div class="card-content">
-                <div class="card-meta">
-                    <span class="price">$9.99 &ndash; $49.99</span>
-                    <div class="product-badge">
-                        <svg viewBox="0 0 24 24"><path d="M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.57 21.82C12.22 22.02 11.78 22.02 11.43 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.43 2.18C11.78 1.98 12.22 1.98 12.57 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5ZM12 4.15L5.04 8.06L12 11.97L18.96 8.06L12 4.15ZM13 19.82L19 16.45V9.71L13 13.08V19.82ZM11 19.82V13.08L5 9.71V16.45L11 19.82Z"/></svg>
-                        1 Products
-                    </div>
+    <div class="container">
+        <header>
+            <div class="header-line">RareHatch</div>
+            <h1>Portfolio</h1>
+            <p class="subtitle">Roblox development, UI, and scripting.</p>
+        </header>
+
+        <div class="bio-section">
+            <h2>About Me</h2>
+            <p>I'm a developer specializing in Luau and user interface design. I create functional scripts and custom systems primarily for roleplay communities on Roblox.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" width="18" height="18">
+                        <path fill="currentColor" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.19-16.14h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53s5-12.74,11.43-12.74S96.33,46,96.22,53,91.08,65.69,84.69,65.69Z"/>
+                    </svg>
+                    sigma015183
                 </div>
-                <h3 class="card-title">Roblox</h3>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    Latvia
+                </div>
+            </div>
+
+            <div class="skills-grid">
+                <span class="product-badge">Luau Scripter</span>
+                <span class="product-badge">UI Designer</span>
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-banner" style="background: linear-gradient(135deg, #1a1a2e 0%, var(--accent-dark) 50%, #1a1a2e 100%);">
-                <div class="banner-text">SERVICES</div>
-            </div>
-            <div class="card-content">
-                <div class="card-meta">
-                    <span class="price">$2.29</span>
-                    <div class="product-badge">
-                        <svg viewBox="0 0 24 24"><path d="M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.57 21.82C12.22 22.02 11.78 22.02 11.43 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.43 2.18C11.78 1.98 12.22 1.98 12.57 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5ZM12 4.15L5.04 8.06L12 11.97L18.96 8.06L12 4.15ZM13 19.82L19 16.45V9.71L13 13.08V19.82ZM11 19.82V13.08L5 9.71V16.45L11 19.82Z"/></svg>
-                        1 Products
+        <div class="store-grid">
+            
+            <div class="card">
+                <div class="card-banner">
+                    <div class="banner-text">CHAT SYSTEM</div>
+                </div>
+                <div class="card-content">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/0hcXCh5i-ug" title="Chat System Video" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-meta">
+                        <span class="product-badge">UI</span>
+                        <span class="product-badge">Scripting</span>
                     </div>
                 </div>
-                <h3 class="card-title">Services</h3>
             </div>
-        </div>
 
-        <div class="card">
-            <div class="card-banner">
-                <div class="banner-text" style="font-size: 1.8rem; text-align: center; line-height: 1.1;">COUNTER<br>STRIKE 2</div>
-            </div>
-            <div class="card-content">
-                <div class="card-meta">
-                    <span class="price">&ndash;</span>
-                    <div class="product-badge" style="background-color: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.2);">
-                        <svg viewBox="0 0 24 24"><path d="M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.57 21.82C12.22 22.02 11.78 22.02 11.43 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.43 2.18C11.78 1.98 12.22 1.98 12.57 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5ZM12 4.15L5.04 8.06L12 11.97L18.96 8.06L12 4.15ZM13 19.82L19 16.45V9.71L13 13.08V19.82ZM11 19.82V13.08L5 9.71V16.45L11 19.82Z"/></svg>
-                        0 Products
+            <div class="card">
+                <div class="card-banner" style="background: linear-gradient(135deg, #1a1a2e 0%, var(--accent-dark) 50%, #1a1a2e 100%);">
+                    <div class="banner-text">BODYCAM</div>
+                </div>
+                <div class="card-content">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/acfBzowFnNY" title="Bodycam Video" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-meta">
+                        <span class="product-badge">UI</span>
+                        <span class="product-badge">Scripting</span>
                     </div>
                 </div>
-                <h3 class="card-title">CS:2</h3>
             </div>
-        </div>
 
-        <div class="card">
-            <div class="card-banner" style="background: linear-gradient(135deg, #1a1a2e 0%, #1a1a2e 50%, var(--accent-dark) 100%);">
-                <div class="banner-text">CONFIGS</div>
-            </div>
-            <div class="card-content">
-                <div class="card-meta">
-                    <span class="price">$3.99 &ndash; $14.99</span>
-                    <div class="product-badge">
-                        <svg viewBox="0 0 24 24"><path d="M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.57 21.82C12.22 22.02 11.78 22.02 11.43 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.43 2.18C11.78 1.98 12.22 1.98 12.57 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5ZM12 4.15L5.04 8.06L12 11.97L18.96 8.06L12 4.15ZM13 19.82L19 16.45V9.71L13 13.08V19.82ZM11 19.82V13.08L5 9.71V16.45L11 19.82Z"/></svg>
-                        4 Products
+            <div class="card">
+                <div class="card-banner" style="background: linear-gradient(135deg, #1a1a2e 0%, #1a1a2e 50%, var(--accent-dark) 100%);">
+                    <div class="banner-text">DASHCAM</div>
+                </div>
+                <div class="card-content">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/h6yHBF8ya2Q" title="Dashcam Video" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-meta">
+                        <span class="product-badge">UI</span>
+                        <span class="product-badge">Scripting</span>
+                        <span class="product-badge">Modeling</span>
                     </div>
                 </div>
-                <h3 class="card-title">Configs</h3>
             </div>
-        </div>
 
+            <div class="card">
+                <div class="card-banner">
+                    <div class="banner-text">UK BASED MDT</div>
+                </div>
+                <div class="card-content">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/tAbFpC6XCZk" title="MDT Video" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-meta">
+                        <span class="product-badge">UI</span>
+                        <span class="product-badge">Scripting</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </body>
